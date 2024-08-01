@@ -1,6 +1,6 @@
 import random
 from colorama import Fore, Style, init
-from art import tprint+
+from art import tprint
 init(autoreset=True)
 def choose_word():
     words = ['choza', 'batirhanchik', 'mercedes', 'BMW', 'porsche']
@@ -8,50 +8,14 @@ def choose_word():
 def display_hangman(tries):
     stages = [
         """
-           ------
-           |    |
-           |    
-           |    
-           |    
-           |
-        -----
-        """,
-        """
-           ------
-           |    |
-           |    O
-           |    
-           |    
-           |
-        -----
-        """,
-        """
-           ------
-           |    |
-           |    O
-           |    |
-           |    
-           |
-        -----
-        """,
-        """
-           ------
-           |    |
-           |    O
-           |   /|
-           |    
-           |
-        -----
-        """,
-        """
-           ------
-           |    |
-           |    O
-           |   /|\\
-           |    
-           |
-        -----
-        """,
+            ------
+            |    |
+            |    O
+            |   /|\\
+            |   / \\
+            |
+         -----
+         """,
         """
            ------
            |    |
@@ -62,17 +26,54 @@ def display_hangman(tries):
         -----
         """,
         """
+          ------
+          |    |
+          |    0
+          |   /|\\
+          |
+          |
+        -----
+        """
+        """
            ------
            |    |
            |    O
-           |   /|\\
-           |   / \\
+           |   /|
+           |    
            |
         -----
+        """,
         """
+          ------
+          |    |
+          |    O
+          |    |
+          |    
+          |
+        -----
+        """,
+        """
+              ------
+              |    |
+              |    O
+              |    
+              |    
+              |
+           -----
+           """,
+
+        """
+           ------
+           |    |
+           |    
+           |    
+           |    
+           |
+        -----
+        """,
     ]
     colors = [Fore.RED, Fore.YELLOW, Fore.GREEN, Fore.CYAN, Fore.BLUE, Fore.MAGENTA, Fore.WHITE]
-    color_stage = stages[tries]
+    color_stage = stages [tries]
     colored_stage = f"{colors[6 - tries]}{color_stage}{Style.RESET_ALL}"
     return colored_stage
 def play_game():
